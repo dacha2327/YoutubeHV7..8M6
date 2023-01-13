@@ -3,4 +3,6 @@
     <string name="connection">No Internet Connection</string>
     <string name="try_again">Try again</string>
     <string name="playlist">playlist</string>
+    <string name="video_series">%s video series</string>
+
 </resources>

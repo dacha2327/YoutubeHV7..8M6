@@ -1,19 +1,16 @@
-package com.example.youtubehv6m6.UI
+package com.example.youtubehv6m6.UI.playlists
 
-import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
-import android.opengl.Visibility
 import android.view.LayoutInflater
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import com.example.youtubehv6m6.base.BaseActivity
-import com.example.youtubehv6m6.base.Connection
+import com.example.youtubehv6m6.core.ui.BaseActivity
+import com.example.youtubehv6m6.core.network.Connection
 import com.example.youtubehv6m6.databinding.ActivityPlaylistBinding
-import com.example.youtubehv6m6.model.Items
+import com.example.youtubehv6m6.data.model.Items
 
-class PlaylistActivity : BaseActivity<MainViewModel , ActivityPlaylistBinding>() {
+class PlaylistActivity : BaseActivity<MainViewModel, ActivityPlaylistBinding>() {
 
     private lateinit var adapter: PlaylistAdapter
 
@@ -26,10 +23,10 @@ class PlaylistActivity : BaseActivity<MainViewModel , ActivityPlaylistBinding>()
     }
 
     private fun clickListener(id : String) {
-        val intent = Intent(this , InfoPlaylistActivity::class.java)
-
-        intent.putExtra(KEY_FOR_ID ,id)
-        startActivity(intent)
+        Intent(this , InfoPlaylistActivity::class.java).apply {
+            putExtra(KEY_FOR_ID ,id)
+            startActivity(this)
+        }
     }
 
     override fun initViewModel() {
@@ -42,7 +39,7 @@ class PlaylistActivity : BaseActivity<MainViewModel , ActivityPlaylistBinding>()
     }
 
     override fun checkInternet() {
-        Connection((getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager))
+        Connection((getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager))
             .observe(this) {
                 binding.includedInternet.constInternet.isVisible = !it
                 binding.rvPlaylist.isVisible  = it

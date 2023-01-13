@@ -1,4 +1,4 @@
-package com.example.youtubehv6m6.UI
+package com.example.youtubehv6m6.UI.playlists
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,11 +6,12 @@ import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.youtubehv6m6.UI.PlaylistAdapter.*
+import com.example.youtubehv6m6.R
+import com.example.youtubehv6m6.UI.playlists.PlaylistAdapter.*
 import com.example.youtubehv6m6.databinding.ItemPlaylistsBinding
-import com.example.youtubehv6m6.model.Items
+import com.example.youtubehv6m6.data.model.Items
 
-class PlaylistAdapter (val list : ArrayList<Items> , private val clickListener : (id : String) -> Unit)
+class PlaylistAdapter ( private val list : ArrayList<Items> , private val clickListener : (id : String) -> Unit)
     : RecyclerView.Adapter<PlaylistViewHolder>() {
 
 
@@ -29,11 +30,11 @@ class PlaylistAdapter (val list : ArrayList<Items> , private val clickListener :
 
     override fun getItemCount(): Int = list.size
 
-    inner class PlaylistViewHolder(val binding : ItemPlaylistsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class PlaylistViewHolder(private val binding : ItemPlaylistsBinding) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun onBind (items: Items) {
             binding.tvTitle.text = items.snippet.title
-            binding.tvNum.text = items.contentDetails.itemCount.toString() + "video series"
+            binding.tvId.text = String.format(itemView.context.getString(R.string.video_series , items.contentDetails.itemCount.toString()))
             binding.ivPlaylist.load(items.snippet.thumbnails.standard
                 .url)
 

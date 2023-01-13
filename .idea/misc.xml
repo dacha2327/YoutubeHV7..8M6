@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/Android/YoutubeHV6M6/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.286" />
         <entry key="..\:/Android/YoutubeHV6M6/app/src/main/res/drawable/ic_launcher_background.xml" value="0.286" />
+        <entry key="..\:/Android/YoutubeHV6M6/app/src/main/res/drawable/shape.xml" value="0.264" />
         <entry key="..\:/Android/YoutubeHV6M6/app/src/main/res/layout/activity_connection.xml" value="0.358695652173913" />
+        <entry key="..\:/Android/YoutubeHV6M6/app/src/main/res/layout/activity_info_playlist.xml" value="0.371875" />
         <entry key="..\:/Android/YoutubeHV6M6/app/src/main/res/layout/activity_playlist.xml" value="0.33" />
-        <entry key="..\:/Android/YoutubeHV6M6/app/src/main/res/layout/item_playlists.xml" value="0.67" />
+        <entry key="..\:/Android/YoutubeHV6M6/app/src/main/res/layout/item_playlists.xml" value="0.33" />
         <entry key="..\:/Android/YoutubeHV6M6/app/src/main/res/layout/no_internet_include.xml" value="0.18059777102330293" />
       </map>
     </option>

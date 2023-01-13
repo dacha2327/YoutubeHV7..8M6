@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="title_size">16dp</dimen>
+    <dimen name="id_size">12dp</dimen>
+    <dimen name="title_margin_top">26dp</dimen>
+    <dimen name="title_margin_start">8dp</dimen>
+    <dimen name="playlist_margin_end">26dp</dimen>
+    <dimen name="playlist_margin_bottom">6dp</dimen>
+</resources>

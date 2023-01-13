@@ -17,10 +17,10 @@
         android:theme="@style/Theme.YoutubeHV6M6"
         tools:targetApi="31">
         <activity
-            android:name=".UI.InfoPlaylistActivity"
+            android:name=".UI.playlists.InfoPlaylistActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.PlaylistActivity"
+            android:name=".UI.playlists.PlaylistActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

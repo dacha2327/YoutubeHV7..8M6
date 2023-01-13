@@ -1,30 +1,25 @@
-package com.example.youtubehv6m6.UI
+package com.example.youtubehv6m6.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import com.example.youtubehv6m6.BuildConfig
-import com.example.youtubehv6m6.base.BaseViewModel
-import com.example.youtubehv6m6.data.ApiService
-import com.example.youtubehv6m6.data.RetrofitClient
-import com.example.youtubehv6m6.model.Playlists
+import com.example.youtubehv6m6.data.remote.ApiService
+import com.example.youtubehv6m6.core.network.RetrofitClient
+import com.example.youtubehv6m6.data.model.Playlists
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
-class MainViewModel : BaseViewModel() {
+class Repository {
 
     private val apiService : ApiService by lazy {
         RetrofitClient.create()
     }
 
-    fun playlist() : LiveData<Playlists> {
-        return getPlaylists()
-    }
+    fun getPlaylists() : LiveData<Playlists> {
+        val data = MediatorLiveData<Playlists>()
 
-    private fun getPlaylists() : LiveData<Playlists> {
-         val data = MediatorLiveData<Playlists>()
-
-        apiService.getPlaylists("snippet,contentDetails" , "UCWOA1ZGywLbqmigxE4Qlvuw" , BuildConfig.API_KEY)
+        apiService.getPlaylists("snippet,contentDetails" , "UCshNYNzkggNqtKD09vLq3SQ" ,
+            BuildConfig.API_KEY, 30)
             .enqueue(object : retrofit2.Callback<Playlists> {
                 override fun onResponse(call: Call<Playlists>, response: Response<Playlists>) {
                     if (response.isSuccessful) {
@@ -38,5 +33,4 @@ class MainViewModel : BaseViewModel() {
             })
         return data
     }
-
 }

@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.InfoPlaylistActivity">
+    tools:context=".UI.playlists.InfoPlaylistActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

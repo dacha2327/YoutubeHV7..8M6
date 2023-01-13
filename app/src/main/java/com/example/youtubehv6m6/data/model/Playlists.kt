@@ -1,4 +1,4 @@
-package com.example.youtubehv6m6.model
+package com.example.youtubehv6m6.data.model
 
 data class Playlists(
     var kind : String,

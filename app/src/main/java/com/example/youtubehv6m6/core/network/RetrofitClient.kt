@@ -1,5 +1,6 @@
-package com.example.youtubehv6m6.data
+package com.example.youtubehv6m6.core.network
 
+import com.example.youtubehv6m6.data.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
