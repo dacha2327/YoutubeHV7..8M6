@@ -19,7 +19,7 @@ class Connection (private val cm : ConnectivityManager) : MutableLiveData<Boolea
             postValue(false)
         }
     }
-
+        //
     override fun onActive() {
         val request = NetworkRequest.Builder()
         cm.registerNetworkCallback(request.build() , networkCallback)
