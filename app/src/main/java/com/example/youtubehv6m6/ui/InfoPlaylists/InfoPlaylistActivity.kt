@@ -1,8 +1,9 @@
-package com.example.youtubehv6m6.UI.playlists
+package com.example.youtubehv6m6.ui.InfoPlaylists
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.youtubehv6m6.ui.playlists.PlaylistActivity
 import com.example.youtubehv6m6.databinding.ActivityInfoPlaylistBinding
 
 class InfoPlaylistActivity : AppCompatActivity() {

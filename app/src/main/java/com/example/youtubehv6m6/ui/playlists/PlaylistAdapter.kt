@@ -1,4 +1,4 @@
-package com.example.youtubehv6m6.UI.playlists
+package com.example.youtubehv6m6.ui.playlists
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.youtubehv6m6.R
-import com.example.youtubehv6m6.UI.playlists.PlaylistAdapter.*
+import com.example.youtubehv6m6.ui.playlists.PlaylistAdapter.*
 import com.example.youtubehv6m6.databinding.ItemPlaylistsBinding
 import com.example.youtubehv6m6.data.model.Items
 

@@ -1,36 +1,23 @@
 package com.example.youtubehv6m6.repository
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.liveData
 import com.example.youtubehv6m6.BuildConfig
-import com.example.youtubehv6m6.data.remote.ApiService
-import com.example.youtubehv6m6.core.network.RetrofitClient
 import com.example.youtubehv6m6.data.model.Playlists
-import retrofit2.Call
-import retrofit2.Response
+import com.example.youtubehv6m6.data.remote.ApiService
+import kotlinx.coroutines.Dispatchers
 
-class Repository {
-
-    private val apiService : ApiService by lazy {
-        RetrofitClient.create()
-    }
+class Repository(private var apiService: ApiService) {
 
     fun getPlaylists() : LiveData<Playlists> {
-        val data = MediatorLiveData<Playlists>()
+        return liveData(Dispatchers.IO) {
+            val response = apiService.getPlaylists(
+                "snippet,contentDetails" ,
+                "UCshNYNzkggNqtKD09vLq3SQ" ,
+                BuildConfig.API_KEY,
+                30)
 
-        apiService.getPlaylists("snippet,contentDetails" , "UCshNYNzkggNqtKD09vLq3SQ" ,
-            BuildConfig.API_KEY, 30)
-            .enqueue(object : retrofit2.Callback<Playlists> {
-                override fun onResponse(call: Call<Playlists>, response: Response<Playlists>) {
-                    if (response.isSuccessful) {
-                        data.value = response.body()
-                    }
-                }
-
-                override fun onFailure(call: Call<Playlists>, t: Throwable) {
-
-                }
-            })
-        return data
+            response.body()?.let { emit(it) }
+        }
     }
 }
